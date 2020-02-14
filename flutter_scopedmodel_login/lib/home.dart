@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_scopedmodel_login/edit.dart';
 import 'package:flutter_scopedmodel_login/model/Sessao.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -60,10 +61,39 @@ class _HomePageState extends State<HomePage> {
                   )
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.skip_next),
-      ),
+      floatingActionButton: _renderizaFABs(),
     )
     );
   }
+
+  Widget _renderizaFABs(){
+
+    return
+      Row( children:
+      [
+        Padding(
+            padding: EdgeInsets.only(left: 30),
+            child:
+            FloatingActionButton(
+                heroTag: "ht1", // NAO SEI PORQUE PRECISA DISSO. SEM, NAO FUNCIONOU.
+                child: Icon(Icons.exit_to_app),
+                onPressed: () => {
+                  Navigator.of(context).pop()
+                }
+            )
+        ),
+        Spacer(),
+        FloatingActionButton(
+                heroTag: "ht2",
+                child: Icon(Icons.mode_edit),
+                onPressed: () => {
+                                    Navigator.pushNamed(context, EditPage.routeName)
+                }
+            ),
+
+      ]
+      );
+
+  }
+
 }

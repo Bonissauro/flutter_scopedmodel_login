@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_scopedmodel_login/edit.dart';
 import 'package:flutter_scopedmodel_login/home.dart';
 import 'package:flutter_scopedmodel_login/model/Sessao.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginPage(title: 'Tela de login'),
     routes: {
-      HomePage.routeName: (context) => HomePage()
+      HomePage.routeName: (context) => HomePage(),
+      EditPage.routeName: (context) => EditPage(),
     }
     );
   }
